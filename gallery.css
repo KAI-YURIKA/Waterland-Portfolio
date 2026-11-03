@@ -1,0 +1,196 @@
+/*=================================
+  Waterland Gallery
+  Moonlight Blue Gray
+    =================================*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(
+        180deg,
+        #182735 0%,
+        #263b4b 50%,
+        #1b2c39 100%
+    );
+    color: #e5eaf0;
+    font-family: "Georgia", "Yu Mincho",
+serif;
+    line-height: 1.8;
+    min-height: 100vh;
+}
+
+/*Gallery-header*/
+
+.gallery-header {
+    text-align: center;
+    padding: 90px 20px 70px;
+}
+
+.gallery-header h1 {
+    font-size: 42px;
+    font-weight: normal;
+    letter-spacing: 8px;
+    color: #e8edf5;
+    margin-bottom: 15px;
+}
+
+.gallery-header p {
+    color: #aebdca;
+    letter-spacing: 3px;
+    font-size: 13px;
+}
+
+/*Artwork Layout*/
+
+.gallery-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 75px 55px;
+    padding-bottom: 100px;
+}
+
+/*Artwork Card*/
+
+.artwork {
+    text-align: center;
+    padding: 20px;
+}
+
+.artwork img {
+    width: 100%;
+    height: 340px;
+    object-fit: contain;
+    background: rgba(10, 20, 30, 0.35);
+    border: 1px solid rgba(210,225,240,0.2);
+    padding: 12px;
+    transition: transform 0.4s ease;
+}
+
+.artwork img:hover {
+    transform: scale(1.025);
+}
+
+.artwork h2 {
+    color: #e4eaf1;
+    font-size: 17px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    margin-top: 25px;
+
+}
+
+.year {
+    color: #a9bac9;
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-top: 8px;
+}
+
+.poem {
+    color: #c1cbd5;
+    font-size: 14px;
+    font-style: italic;
+    margin-top: 15px;
+}
+
+/*Footer*/
+
+footer {
+    text-align: center;
+    padding: 35px 20px;
+    border-top: 1px solid rgba(210,225,240,0.15);
+    color: #9cabb9;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+/* Smartphone Layout */
+@media (max-width: 600px) {
+    .gallery-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .gallery-header h1 {
+        font-size: 30px;
+    }
+
+    .artwork img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Lightbox */
+
+.artwork img {
+    cursor: zoom-in;
+}
+
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 12, 28, 0.95);
+    z-index: 9999;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox-image {
+    max-width: 90%;
+    max-height: 85vh;
+    object-fit: contain;
+
+    border: 1px solid rgba(210, 225, 240, 0.3);
+    box-shadow: 0 0 35px rgba(120, 160, 210, 0.2);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+
+    font-size: 36px;
+    color: #e8edf5;
+    cursor: pointer;
+}
+
+.lightbox-close:hover {
+    color: #a9c8e8;
+}
+
+/* Smartphone Lightbox Layout */
+@media (max-width: 600px) {
+
+    .lightbox {
+        padding: 15px;
+    }
+
+    .lightbox-image {
+        max-width: 94%;
+        max-height: 80vh;
+        object-fit: contain;
+    }
+
+    .lightbox-close {
+        font-size: 42px;
+        top: 15px;
+        right: 20px;
+        padding: 10px;
+    }
+}
