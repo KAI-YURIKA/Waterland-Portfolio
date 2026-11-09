@@ -194,3 +194,72 @@ footer {
         padding: 10px;
     }
 }
+
+/*==============================================
+   SMARTPHONE : Gallery
+======================================= */
+
+@media screen and (max-width: 600px) {
+
+  /* 基本設定 */
+  body {
+    font-size: 16px;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  /* ナビゲーション */
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    padding: 15px 10px;
+  }
+
+  nav a {
+    font-size: 15px;
+  }
+
+  /* ギャラリー見出し */
+  .gallery-header h1 {
+    font-size: 28px;
+  }
+
+  .gallery-header p {
+    font-size: 16px;
+  }
+
+  /* 作品一覧 */
+  .gallery-container {
+    grid-template-columns: 1fr;
+    width: 100%;
+    padding: 20px 15px;
+  }
+
+  /* 作品カード */
+  .artwork {
+    width: 100%;
+    margin-bottom: 35px;
+  }
+
+  /* 作品画像 */
+  .artwork img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* 作品タイトル */
+  .artwork h2 {
+    font-size: 20px;
+    line-height: 1.6;
+  }
+
+  /* 年号・説明文 */
+  .year
+  .poem {
+    font-size: 16px;
+    line-height: 1.9;
+  }
+}
