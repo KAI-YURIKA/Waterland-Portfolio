@@ -80,3 +80,39 @@ section {
 }
 
 
+/* SMARTPHONE :スマホ表示の調整 */
+@media screen and (max-width: 600px) {
+    
+    /* 基本の文字サイズ　*/
+    body {
+        font-size: 16px;
+        line-height: 1.8;
+    }
+    /* 見出し */
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 23px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    /* 物語 */
+    #story p {
+        font-size: 17px;
+        line-height: 1.9;
+        padding: 0 15px;
+        margin-bottom: 25px;
+    }
+
+    /* プロフィール写真 */
+    .profile-photo-frame {
+        width: 110px;
+        height: 110px;
+    }
+    
+}
