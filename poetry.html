@@ -1,5 +1,265 @@
 <!DOCTYPE html>
 <html lang="ja">
+  
 <head>
 <meta charset=UTF-8>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Poetry | Waterland</title>
+<style>
+
+/* ページ全体 */
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #dce3e8;
+  font-family: "Yu Mincho, "Hiragino Mincho ProN", serif;
+  color: #34434d;
+}
+
+/* タイトル */
+
+header {
+  text-align: center;
+  padding: 40px 20px 20px;
+}
+
+header h1 {
+  font-size: 32px;
+  font-weight: normal;
+  letter-spacing: 5px;
+
+header p {
+  font-size: 13px;
+  letter-spacing: 3px;
+}
+
+/* 詩のページ */
+
+.poetry-page {
+  background: #f5f1e7;
+  max-width: 650px;
+  min-height: 500px;
+  margin: 30px auto;
+  padding: 50px 30px;
+  box-sizing: border-box;
+  text-align: center;
+  boder-radius: 3px;
+}
+
+/* 詩のタイトル */
+
+#poem-title {
+  font-size:25px;
+  font-weight: normal;
+  letter-spacing: 3px;
+  margin-bottom: 40px;
+}
+
+/* 詩の本文 */
+
+#poem-text {
+  font-size: 16px;
+  line-height: 2.5;
+  white-space: pre-line;
+  letter-spacing: 1px;
+}
+
+/* 制作年 */
+
+#poem-year {
+  margin-top: 50px;
+  font-size: 13px;
+  color: #89949b;
+}
+
+/* ページ移動 */
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  margin: 30px 10px;
+}
+
+button {
+  background: transparent;
+  boder: 1px solid #89949b;
+  padding: 12px 20px;
+  color: #34434d;
+  font-family: inherit;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background: #34434d;
+  color: #ffffff;
+}
+
+#page-number {
+  font-size: 14px;
+}
+
+/* HOMEリンク */
+
+.home {
+  text-align: center;
+  padding: 30px;
+}
+
+.home a {
+  color: #34434d;
+  text-decoration: none;
+  letter-spacing: 2px;
+}
+
+/* スマートフォン対応 */
+
+@media (max-width: 600px) {
+
+  header h1 {
+    font-size: 25px;
+  }
+
+  .poetry-page {
+    margin: 20px 15px;
+    padding: 40px 20px;
+    min-height: 450px;
+  }
+
+  #poem-title {
+    font-size: 21px;
+  }
+
+  #poem-text {
+    font-size: 14px;
+  }
+
+  .navigation {
+    gap: 10px;
+  }
+
+  button {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+
+}
+
+</style>
 </head>
+
+<body>
+
+<header>
+  <h1>Poerty</h1>
+  <p>詩集 ー Waterland</p>
+</header>
+
+<main>
+
+  <section class="poetry-page">
+
+    <h2 id="poem-title"></h2>
+
+    <div id="poem-text"></div>
+
+    <p id="poem-year">2026</p>
+
+  </section>
+
+  <div class="navigation">
+
+    <button onclick="changePoem(-1)">
+      ← 前の詩
+    </button>
+
+    <span id="page-number"></span>
+
+    <button onclick="changePoem(1)">
+      次の詩→
+    </button>
+    
+  </div>
+  
+</main>
+
+<div class="home">
+  <a href="index.html">←HOME</a>
+</div>
+
+<script>
+
+// 詩のデータ
+
+const poems = [
+
+  {
+    title: "月あかりの国",
+    text: "ここに詩の本文を入力します。\n\n一行ずつ、言葉を重ねていきます。",
+    year: "2026"
+  },
+
+  {
+    title: "夕あかり",
+    text: "ここに二つ目の詩を入力します。\n\n静かな夜に、思いを込めて。",
+    year: "2026"        
+},
+
+  {
+
+    title: "海の向こう",
+    text: "ここに三つ目の詩を入力します。\n\n遠い空へ、言葉を届けます。",
+    year: "2026"
+  }
+
+];
+
+// 現在のページ 
+
+let currentPoem = 0;
+
+// 詩を表示する関数
+
+function showPoem() {
+
+document.getElementById("poem-title").textContent = poems[currentPoem].title;
+
+document.getElementById("poem-text").textContent = poems[currentPoem].text;
+
+document.getElementById("poem-year").textContent = poems[currentPoem].year;
+
+document.getElementById("page-number").textContent = (currentPoem + 1) + " / " +poems.length;
+
+}
+
+// 前後のページへ移動 
+
+function changePoem(direction) {
+
+  currentPoem += direction;
+
+  if (currentPoem < 0) {
+      currentPoem = poems.length - 1;
+  }
+
+  if (currentPoem >=poems.length) {
+      currentPoem = 0;
+  }
+
+  showPoem();
+
+}
+
+// 最初の詩を表示
+
+showPoem();
+
+</script>
+</header>
+  
+</body>
+</html>
